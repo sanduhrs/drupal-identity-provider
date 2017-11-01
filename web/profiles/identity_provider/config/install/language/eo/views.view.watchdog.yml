@@ -1,0 +1,41 @@
+label: Gardhundo
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrilo
+          reset_button_label: Restarigu
+          exposed_sorts_label: 'Ordigu laŭ'
+          sort_asc_label: kreske
+          sort_desc_label: malkreske
+      pager:
+        options:
+          expose:
+            items_per_page_options_all_label: '- Ĉio -'
+      fields:
+        severity:
+          label: Graveco
+        type:
+          label: Tipo
+        timestamp:
+          label: Dato
+        message:
+          label: Mesaĝo
+        name:
+          label: Uzanto
+        link:
+          label: Operacioj
+      filters:
+        type:
+          expose:
+            label: Tipo
+        severity:
+          expose:
+            label: Graveco
+      empty:
+        area:
+          content:
+            value: 'Loglibroj mesaĝoj ne ekzistas.'
+  page:
+    display_title: Paĝo

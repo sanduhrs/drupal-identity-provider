@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: openid_connect_provider_offline_access
+scope_id: offline_access
+server_id: openid_connect_provider
+description: 'Access the API when you''re not present.'

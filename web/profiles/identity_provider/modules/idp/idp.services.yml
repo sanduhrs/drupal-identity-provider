@@ -1,0 +1,5 @@
+services:
+  idp.route_subscriber:
+    class: Drupal\idp\EventSubscriber\IdpRouteSubscriber
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,50 @@
+name: Identity Provider
+type: profile
+description: 'Install with commonly used features pre-configured.'
+core: 8.x
+
+distribution:
+  name: Identity Provider
+  langcode: en
+dependencies:
+  - node
+  - block
+  - breakpoint
+  - ckeditor
+  - color
+  - config
+  - contextual
+  - menu_link_content
+  - datetime
+  - block_content
+  - quickedit
+  - editor
+  - help
+  - image
+  - menu_ui
+  - options
+  - path
+  - page_cache
+  - dynamic_page_cache
+  - taxonomy
+  - dblog
+  - toolbar
+  - field_ui
+  - file
+  - rdf
+  - views
+  - views_ui
+  - tour
+  - automated_cron
+  - telephone
+  - address
+  - oauth2_server
+  - pathauto
+  - language
+  - content_translation
+  - locale
+  - swiftmailer
+  - idp
+themes:
+  - identity
+  - seven

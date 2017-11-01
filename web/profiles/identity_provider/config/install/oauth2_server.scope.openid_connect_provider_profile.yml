@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: openid_connect_provider_profile
+scope_id: profile
+server_id: openid_connect_provider
+description: 'View basic information about your account.'

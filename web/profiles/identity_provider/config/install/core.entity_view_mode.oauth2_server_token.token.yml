@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - oauth2_server
+id: oauth2_server_token.token
+label: Token
+targetEntityType: oauth2_server_token
+cache: true

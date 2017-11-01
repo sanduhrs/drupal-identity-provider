@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: openid_connect_provider_email
+scope_id: email
+server_id: openid_connect_provider
+description: 'View your email address.'

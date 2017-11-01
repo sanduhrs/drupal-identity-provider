@@ -1,0 +1,52 @@
+label: Uzantoj
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrilo
+          reset_button_label: Restarigu
+          exposed_sorts_label: 'Ordigu laŭ'
+          sort_asc_label: kreske
+          sort_desc_label: malkreske
+      pager:
+        options:
+          expose:
+            items_per_page_options_all_label: '- Ĉio -'
+      fields:
+        name:
+          label: Uzantnomo
+        status:
+          label: Stato
+          settings:
+            format_custom_true: Aktiva
+            format_custom_false: Blokita
+        roles_target_id:
+          label: Roloj
+        created:
+          label: 'Membro dum'
+        access:
+          label: 'Lasta aliro'
+        operations:
+          label: Operacioj
+      filters:
+        status:
+          group_info:
+            label: Stato
+            group_items:
+              1:
+                title: Aktiva
+              2:
+                title: Blokita
+        permission:
+          expose:
+            label: Permeso
+      title: Uzantoj
+      use_more_text: pli
+  page_1:
+    display_title: Paĝo
+    display_options:
+      menu:
+        title: Listo
+      tab_options:
+        title: Uzantoj

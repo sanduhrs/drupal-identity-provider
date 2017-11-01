@@ -1,0 +1,41 @@
+label: Dosieroj
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrilo
+          reset_button_label: Restarigu
+          exposed_sorts_label: 'Ordigu laŭ'
+          sort_asc_label: kreske
+          sort_desc_label: malkreske
+      pager:
+        options:
+          expose:
+            items_per_page_options_all_label: '- Ĉio -'
+      fields:
+        filename:
+          label: Nomo
+        filesize:
+          label: Grandeco
+        status:
+          label: Stato
+      filters:
+        status:
+          expose:
+            label: Stato
+      title: Dosieroj
+  page_1:
+    display_options:
+      menu:
+        title: Dosieroj
+  page_2:
+    display_options:
+      pager:
+        options:
+          expose:
+            items_per_page_options_all_label: '- Ĉio -'
+      arguments:
+        fid:
+          exception:
+            title: Ĉiuj

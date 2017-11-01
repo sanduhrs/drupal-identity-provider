@@ -1,0 +1,25 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apliku
+          reset_button_label: Restarigu
+          exposed_sorts_label: 'Ordigu laŭ'
+          sort_asc_label: kreske
+          sort_desc_label: malkreske
+      pager:
+        options:
+          expose:
+            items_per_page_options_all_label: '- Ĉio -'
+      fields:
+        title:
+          label: Titolo
+        name:
+          label: Aŭtoro
+        changed:
+          label: 'Lasta ĝisdatiĝo'
+  attachment_1:
+    display_title: Kunsendaĵo
+  page_1:
+    display_title: Paĝo

@@ -1,0 +1,146 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the identity_provider profile.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
+use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function identity_provider_install() {
+  // Allow visitor account creation with administrative approval.
+  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
+  $user_settings->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)->save(TRUE);
+
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // We install some menu links, so we have to rebuild the router, to ensure the
+  // menu links are valid.
+  \Drupal::service('router.builder')->rebuildIfNeeded();
+
+  // Allow authenticated users to use shortcuts.
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
+
+  // Enable the admin theme.
+  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+  // Update entities.
+  $update_manager = \Drupal::entityDefinitionUpdateManager();
+  if ($update_manager->needsUpdates()) {
+    $update_manager->applyUpdates();
+  }
+
+  // Create help pages.
+  $node = Node::create([
+    'type' => 'page',
+    'title' => 'Help',
+    'langcode' => 'en',
+    'uid' => '1',
+    'status' => 1,
+    'body' => [
+      'value' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <ul>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
+        </ul>',
+      'format' => 'basic_html',
+    ],
+  ]);
+  $node->addTranslation('de', [
+    'type' => 'page',
+    'title' => 'Hilfe',
+    'langcode' => 'de',
+    'uid' => '1',
+    'status' => 1,
+    'body' => [
+      'value' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <ul>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
+        </ul>',
+      'format' => 'basic_html',
+    ]
+  ]);
+  $node->addTranslation('fr', [
+    'type' => 'page',
+    'title' => 'Aide',
+    'langcode' => 'fr',
+    'uid' => '1',
+    'status' => 1,
+    'body' => [
+      'value' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <ul>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
+        </ul>',
+      'format' => 'basic_html',
+    ]
+  ]);
+  $node->addTranslation('eo', [
+    'type' => 'page',
+    'title' => 'Helpo',
+    'langcode' => 'eo',
+    'uid' => '1',
+    'status' => 1,
+    'body' => [
+      'value' => '<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+        <ul>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
+          <li><strong>Lorem ipsum dolor sit amet</strong><br />
+          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
+        </ul>',
+      'format' => 'basic_html',
+    ]
+  ]);
+  $node->save();
+
+  // Create menu links.
+  $menu_item = MenuLinkContent::create([
+    'title' => 'Help',
+    'langcode' => 'en',
+    'link' => 'entity:node/1',
+    'menu_name' => 'footer',
+    'rediscover' => FALSE,
+  ]);
+  $menu_item->addTranslation('de', [
+    'title' => 'Hilfe',
+    'langcode' => 'de',
+  ]);
+  $menu_item->addTranslation('fr', [
+    'title' => 'Aide',
+    'langcode' => 'de',
+  ]);
+  $menu_item->addTranslation('eo', [
+    'title' => 'Helpo',
+    'langcode' => 'de',
+  ]);
+  $menu_item->save();
+}

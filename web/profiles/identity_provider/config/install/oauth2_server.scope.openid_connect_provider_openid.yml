@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: openid_connect_provider_openid
+scope_id: openid
+server_id: openid_connect_provider
+description: 'Know who you are on Drush Site-Install'

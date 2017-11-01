@@ -1,0 +1,17 @@
+label: 'Kiu novas'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apliku
+          reset_button_label: Restarigu
+          exposed_sorts_label: 'Ordigu laŭ'
+          sort_asc_label: kreske
+          sort_desc_label: malkreske
+      title: 'Kiu novas'
+  block_1:
+    display_title: 'Kiu novas'
+    display_options:
+      block_description: 'Kiu novas'
+      block_category: Uzanto
