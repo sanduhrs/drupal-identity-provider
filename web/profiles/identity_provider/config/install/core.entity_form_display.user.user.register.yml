@@ -2,15 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.user.register
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
     - image
     - user
-id: user.user.default
+id: user.user.register
 targetEntityType: user
 bundle: user
-mode: default
+mode: register
 content:
   account:
     weight: 1
