@@ -4,11 +4,11 @@ dependencies:
   module:
     - system
   theme:
-    - identity
-id: identity_mainpagecontent
-theme: identity
+    - identityprovider
+id: identityprovider_mainpagecontent
+theme: identityprovider
 region: content
-weight: 1
+weight: -2
 provider: null
 plugin: system_main_block
 settings:

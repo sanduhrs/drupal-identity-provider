@@ -1,0 +1,22 @@
+name: Identity Provider
+type: theme
+description: Identity Provider theme based on material_base theme. Styles only the user login / register / edit pages.
+package: Other
+core: 8.x
+base theme: material_base
+
+libraries:
+  - identityprovider/global-styling
+
+#libraries-override:
+#  material_base/styles:
+#    identityprovider/global-styling
+
+regions:
+  header: Header
+  highlighted: Highlighted
+  content: Content
+  contentfooter: Content Footer (Card)
+  footer: Footer
+
+project: identityprovider

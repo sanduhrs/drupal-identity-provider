@@ -4,9 +4,9 @@ dependencies:
   module:
     - language
   theme:
-    - identity
-id: languageswitcher
-theme: identity
+    - material_base
+id: material_base_languageswitcher
+theme: material_base
 region: footer
 weight: -4
 provider: null

@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - identity
-id: identity_pagetitle
-theme: identity
+    - identityprovider
+id: identityprovider_pagetitle
+theme: identityprovider
 region: content
-weight: -3
+weight: -5
 provider: null
 plugin: page_title_block
 settings:

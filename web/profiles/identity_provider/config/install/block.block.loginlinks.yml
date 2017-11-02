@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.login-links
+  module:
+    - system
+  theme:
+    - identityprovider
+id: loginlinks
+theme: identityprovider
+region: contentfooter
+weight: 0
+provider: null
+plugin: 'system_menu_block:login-links'
+settings:
+  id: 'system_menu_block:login-links'
+  label: Login-Links
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 1
+visibility: {  }

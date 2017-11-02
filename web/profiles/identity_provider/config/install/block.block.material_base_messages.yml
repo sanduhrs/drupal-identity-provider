@@ -4,10 +4,10 @@ dependencies:
   module:
     - system
   theme:
-    - identity
-id: identity_messages
-theme: identity
-region: featured
+    - material_base
+id: material_base_messages
+theme: material_base
+region: header
 weight: 0
 provider: null
 plugin: system_messages_block

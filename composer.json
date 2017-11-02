@@ -22,7 +22,7 @@
         "drupal/address": "^1.2",
         "drupal/console": "~1.0",
         "drupal/core": "~8.0",
-        "drupal/matter": "^1.0@alpha",
+        "drupal/material_base": "^1.1",
         "drupal/oauth2_server": "^1.0@beta",
         "drupal/pathauto": "^1.0",
         "drupal/swiftmailer": "^1.0@beta",

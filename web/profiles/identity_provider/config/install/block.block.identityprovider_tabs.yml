@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - identity
-id: identity_tabs
-theme: identity
+    - identityprovider
+id: identityprovider_tabs
+theme: identityprovider
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:

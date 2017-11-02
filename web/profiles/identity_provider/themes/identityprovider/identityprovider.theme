@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the theme.
+ */
+
+use Drupal\Core\Template\Attribute;
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ */
+function identityprovider_preprocess_html(&$variables) {
+  // Add sticky navbar class
+  $variables['attributes']['class'][] = 'navbar-fixed';
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function identityprovider_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_login_form':
+      $form['#attributes']['class'] = array_diff($form['#attributes']['class'], ['card card-form']);
+      $form['links'] = Null;
+      $form['user_icon']['#markup'] = '<div class="user-icon text-align-center"><i class="material-icons text-disabled">lock</i></div>';
+      $form['user_icon']['#weight'] = -15;
+      $form['name']['#title'] = Null;
+      $form['name']['#attributes']['placeholder'] = t('Login');
+      $form['name']['#description'] = Null;
+      $form['pass']['#title'] = Null;
+      $form['pass']['#attributes']['placeholder'] = t('Password');
+      $form['pass']['#description'] = Null;
+      $form['actions']['#attributes']['class'] = array_diff($form['actions']['#attributes']['class'], ['card-item card-actions divider-top']);
+      $form['actions']['#attributes']['class'][] = 'card-item card-actions  divider-top top-margin clearfix';
+      $form['actions']['submit']['#attributes']['class'] = array_diff(['actions']['submit']['#attributes']['class'], ['btn-accent']);
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
+      $form['actions']['submit']['#attributes']['class'][] = 'pull-right';
+      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/password">' . t('Reset your password') . '</a>';
+      break;
+    case 'user_pass':
+      $form['#attributes']['class'] = array_diff($form['#attributes']['class'], ['card card-form']);
+      $form['user_icon']['#markup'] = '<div class="user-icon text-align-center"><i class="material-icons text-disabled">vpn_key</i></div>';
+      $form['user_icon']['#weight'] = -15;
+      $form['mail']['#weight'] = -10;
+      $form['name']['#title'] = Null;
+      $form['name']['#attributes']['placeholder'] = t('Login or E-mail');
+      $form['actions']['#attributes']['class'][] = 'card-item card-actions  divider-top top-margin clearfix';
+      $form['actions']['submit']['#attributes']['class'] = array_diff(['actions']['submit']['#attributes']['class'], ['btn-accent']);
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
+      $form['actions']['submit']['#attributes']['class'][] = 'pull-right';
+      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/login">' . t('Log in') . '</a>';
+      break;
+    case 'user_register_form':
+      $form['#attributes']['class'] = array_diff($form['#attributes']['class'], ['card card-form']);
+      $form['user_icon']['#markup'] = '<div class="user-icon text-align-center"><i class="material-icons text-disabled">account_circle</i></div>';
+      $form['user_icon']['#weight'] = -15;
+      $form['account']['name']['#title'] = Null;
+      $form['account']['name']['#attributes']['placeholder'] = t('Login');
+      $form['account']['mail']['#title'] = Null;
+      $form['account']['mail']['#attributes']['placeholder'] = t('E-mail');
+      $form['actions']['#attributes']['class'][] = 'card-item card-actions  divider-top clearfix';
+      $form['actions']['submit']['#attributes']['class'] = array_diff(['actions']['submit']['#attributes']['class'], ['btn-accent']);
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
+      $form['actions']['submit']['#attributes']['class'][] = 'pull-right';
+      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/login">' . t('Log in') . '</a>';
+      break;
+    default:
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function identityprovider_preprocess_links(&$variables) {
+  if ($variables['theme_hook_original'] == "links__language_block") {
+    $variables['attributes']['class'][] = "menu";
+    $variables['attributes']['class'][] = "menu-dropdown";
+    $variables['attributes']['id'] = Html::getUniqueId('language-dropdown');
+  }
+}

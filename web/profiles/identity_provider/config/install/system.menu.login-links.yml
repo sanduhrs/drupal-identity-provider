@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: login-links
+label: Login-Links
+description: 'Will be used under the login card of the identity provider.'
+locked: false
