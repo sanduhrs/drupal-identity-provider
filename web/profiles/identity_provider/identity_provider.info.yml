@@ -46,5 +46,6 @@ dependencies:
   - swiftmailer
   - idp
 themes:
-  - identity
   - seven
+  - material_base
+  - identityprovider
