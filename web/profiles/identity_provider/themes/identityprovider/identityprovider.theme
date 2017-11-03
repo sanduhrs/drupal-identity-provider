@@ -5,7 +5,6 @@
  * Functions to support theming in the theme.
  */
 
-use Drupal\Core\Template\Attribute;
 use \Drupal\Core\Url;
 use Drupal\Component\Utility\Html;
 
@@ -16,7 +15,6 @@ function identityprovider_preprocess_html(&$variables) {
   // Add sticky navbar class
   $variables['attributes']['class'][] = 'navbar-fixed';
 }
-
 
 /**
  * Implements hook_form_alter().
