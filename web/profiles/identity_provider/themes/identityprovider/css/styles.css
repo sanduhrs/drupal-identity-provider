@@ -2596,7 +2596,8 @@ ul.messages-list {
 .path-user.user-logged-in nav.tabs {
   display: block; }
 
-.path-user #content {
+.path-user #content
+.path-oauth2 #content {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
