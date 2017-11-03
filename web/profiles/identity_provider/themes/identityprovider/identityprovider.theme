@@ -71,8 +71,13 @@ function identityprovider_form_alter(&$form, $form_state, $form_id) {
       $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/login">' . t('Log in') . '</a>';
       break;
     default:
-      $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
-      $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
+      if (isset($form['actions']['submit'])) {
+        $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
+        $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
+      }
+      if (isset($form['actions']['cancel'])) {
+        $form['actions']['cancel']['submit']['#attributes']['class'][] = 'btn-raised';
+      }
       break;
   }
 }
