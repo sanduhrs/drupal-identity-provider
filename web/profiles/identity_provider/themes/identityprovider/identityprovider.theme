@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Template\Attribute;
+use \Drupal\Core\Url;
 use Drupal\Component\Utility\Html;
 
 /**
@@ -39,7 +40,8 @@ function identityprovider_form_alter(&$form, $form_state, $form_id) {
       $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
       $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
       $form['actions']['submit']['#attributes']['class'][] = 'pull-right';
-      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/password">' . t('Reset your password') . '</a>';
+      $url = Url::fromUserInput('/user/password');
+      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="' . $url->toString() . '">' . t('Reset your password') . '</a>';
       break;
     case 'user_pass':
       $form['#attributes']['class'] = array_diff($form['#attributes']['class'], ['card card-form']);
@@ -53,7 +55,8 @@ function identityprovider_form_alter(&$form, $form_state, $form_id) {
       $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
       $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
       $form['actions']['submit']['#attributes']['class'][] = 'pull-right';
-      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/login">' . t('Log in') . '</a>';
+      $url = Url::fromUserInput('/user/login');
+      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="' . $url->toString() . '">' . t('Log in') . '</a>';
       break;
     case 'user_register_form':
       $form['#attributes']['class'] = array_diff($form['#attributes']['class'], ['card card-form']);
@@ -68,7 +71,8 @@ function identityprovider_form_alter(&$form, $form_state, $form_id) {
       $form['actions']['submit']['#attributes']['class'][] = 'btn-colored';
       $form['actions']['submit']['#attributes']['class'][] = 'btn-raised';
       $form['actions']['submit']['#attributes']['class'][] = 'pull-right';
-      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="/user/login">' . t('Log in') . '</a>';
+      $url = Url::fromUserInput('/user/login');
+      $form['actions']['request_pass']['#markup'] = '<a class="btn pull-left" href="' . $url->toString() . '">' . t('Log in') . '</a>';
       break;
     default:
       if (isset($form['actions']['submit'])) {
