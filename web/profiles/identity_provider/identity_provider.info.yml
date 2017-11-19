@@ -44,6 +44,8 @@ dependencies:
   - content_translation
   - locale
   - swiftmailer
+  - tfa
+  - ga_login
   - idp
 themes:
   - seven

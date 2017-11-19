@@ -5,6 +5,7 @@
  * Install, update and uninstall functions for the identity_provider profile.
  */
 
+use Drupal\Component\Utility\Random;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\node\Entity\Node;
@@ -19,8 +20,9 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
  */
 function identity_provider_install() {
   // Allow visitor account creation with administrative approval.
-  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
-  $user_settings->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)->save(TRUE);
+  \Drupal::configFactory()->getEditable('user.settings')
+    ->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)
+    ->save(TRUE);
 
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
@@ -35,13 +37,24 @@ function identity_provider_install() {
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
 
   // Enable the admin theme.
-  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+  \Drupal::configFactory()->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
 
   // Update entities.
   $update_manager = \Drupal::entityDefinitionUpdateManager();
   if ($update_manager->needsUpdates()) {
     $update_manager->applyUpdates();
   }
+
+  // Generate a custom 128bit encryption key.
+  $random = new Random();
+  \Drupal::configFactory()->getEditable('key.key.tfa_encryption_key_01')
+    ->set('key_provider_settings', [
+      'base64_encoded' => TRUE,
+      'key_value' => base64_encode($random->string(16)),
+    ])
+    ->save(TRUE);
 
   // Create help pages.
   $node = Node::create([

@@ -22,10 +22,13 @@
         "drupal/address": "^1.2",
         "drupal/console": "~1.0",
         "drupal/core": "~8.0",
+        "drupal/ga_login": "1.x-dev",
+        "drupal/key": "~1.5",
         "drupal/material_base": "^1.1",
         "drupal/oauth2_server": "^1.0@beta",
         "drupal/pathauto": "^1.0",
         "drupal/swiftmailer": "^1.0@beta",
+        "drupal/tfa": "^1.0@alpha",
         "drupal/token": "^1.0",
         "drush/drush": "~9",
         "webflo/drupal-finder": "^1.0.0",
@@ -76,6 +79,14 @@
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
+            "drupal/ga_login": {
+                "Class Base32\\Base32 not found: caused by deprecated Base32 library usage": "https://www.drupal.org/files/issues/ga-login-2880601-refactor-base-encoding-for-library-dependency-6.patch"
+            },
+            "drupal/tfa": {
+                "Class 'Base32\\Base32' not found - switch library to paragonie/constant_time_encoding": "https://www.drupal.org/files/issues/tfa-base32-paragonie-encoding.patch"
+            }
         }
     }
 }
