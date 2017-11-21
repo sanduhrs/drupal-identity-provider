@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - identityprovider
+    - identity
 id: loginlinks
-theme: identityprovider
+theme: identity
 region: contentfooter
 weight: 0
 provider: null

@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - identityprovider
-id: identityprovider_poweredbydrupal
-theme: identityprovider
+    - identity
+id: identity_poweredbydrupal
+theme: identity
 region: footer
 weight: -4
 provider: null

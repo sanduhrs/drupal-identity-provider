@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - identityprovider
-id: identityprovider_help
-theme: identityprovider
+    - identity
+id: identity_help
+theme: identity
 region: highlighted
 weight: -6
 provider: null

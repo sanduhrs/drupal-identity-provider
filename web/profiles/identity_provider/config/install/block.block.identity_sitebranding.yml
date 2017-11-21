@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - identityprovider
-id: identityprovider_sitebranding
-theme: identityprovider
+    - identity
+id: identity_sitebranding
+theme: identity
 region: header
 weight: -5
 provider: null

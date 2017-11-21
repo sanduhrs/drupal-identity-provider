@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - identityprovider
-id: identityprovider_footer
-theme: identityprovider
+    - identity
+id: identity_footer
+theme: identity
 region: header
 weight: -4
 provider: null
