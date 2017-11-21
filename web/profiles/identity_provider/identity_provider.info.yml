@@ -50,4 +50,4 @@ dependencies:
 themes:
   - seven
   - material_base
-  - identityprovider
+  - identity

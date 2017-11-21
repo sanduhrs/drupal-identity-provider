@@ -11,7 +11,7 @@ use Drupal\Component\Utility\Html;
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
  */
-function identityprovider_preprocess_html(&$variables) {
+function identity_preprocess_html(&$variables) {
   // Add sticky navbar class
   $variables['attributes']['class'][] = 'navbar-fixed';
 }
@@ -19,7 +19,7 @@ function identityprovider_preprocess_html(&$variables) {
 /**
  * Implements hook_form_alter().
  */
-function identityprovider_form_alter(&$form, $form_state, $form_id) {
+function identity_form_alter(&$form, $form_state, $form_id) {
   switch ($form_id) {
     case 'user_login_form':
       $form['#attributes']['class'] = array_diff($form['#attributes']['class'], ['card card-form']);
@@ -87,7 +87,7 @@ function identityprovider_form_alter(&$form, $form_state, $form_id) {
 /**
  * Implements hook_preprocess_block().
  */
-function identityprovider_preprocess_links(&$variables) {
+function identity_preprocess_links(&$variables) {
   if ($variables['theme_hook_original'] == "links__language_block") {
     $variables['attributes']['class'][] = "menu";
     $variables['attributes']['class'][] = "menu-dropdown";
