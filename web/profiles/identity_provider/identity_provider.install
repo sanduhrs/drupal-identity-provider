@@ -140,11 +140,32 @@ function identity_provider_install() {
   ]);
   $menu_item->addTranslation('fr', [
     'title' => 'Aide',
-    'langcode' => 'de',
+    'langcode' => 'fr',
   ]);
   $menu_item->addTranslation('eo', [
     'title' => 'Helpo',
+    'langcode' => 'eo',
+  ]);
+  $menu_item->save();
+
+  $menu_item = MenuLinkContent::create([
+    'title' => 'Create new account',
+    'langcode' => 'en',
+    'link' => 'internal:user/register',
+    'menu_name' => 'login-links',
+    'rediscover' => FALSE,
+  ]);
+  $menu_item->addTranslation('de', [
+    'title' => 'Neues Benutzerkonto erstellen',
     'langcode' => 'de',
+  ]);
+  $menu_item->addTranslation('fr', [
+    'title' => 'Créer un nouveau compte',
+    'langcode' => 'fr',
+  ]);
+  $menu_item->addTranslation('eo', [
+    'title' => 'Kreu novan konton',
+    'langcode' => 'eo',
   ]);
   $menu_item->save();
 }
