@@ -47,15 +47,6 @@ function identity_provider_install() {
     $update_manager->applyUpdates();
   }
 
-  // Generate a custom 128bit encryption key.
-  $random = new Random();
-  \Drupal::configFactory()->getEditable('key.key.tfa_encryption_key_01')
-    ->set('key_provider_settings', [
-      'base64_encoded' => TRUE,
-      'key_value' => base64_encode($random->string(16)),
-    ])
-    ->save(TRUE);
-
   // Create help pages.
   $node = Node::create([
     'type' => 'page',
