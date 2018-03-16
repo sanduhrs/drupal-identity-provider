@@ -151,7 +151,7 @@ function identity_provider_install() {
   $menu_item = MenuLinkContent::create([
     'title' => 'Create new account',
     'langcode' => 'en',
-    'link' => 'internal:user/register',
+    'link' => 'internal:/user/register',
     'menu_name' => 'login-links',
     'rediscover' => FALSE,
   ]);
