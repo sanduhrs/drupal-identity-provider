@@ -25,13 +25,10 @@
         "drush/drush": "~9",
         "drupal/core": "~8",
         "drupal/address": "~1",
-        "drupal/ga_login": "~1",
-        "drupal/key": "~1",
         "drupal/material_base": "~1",
         "drupal/oauth2_server": "~1",
         "drupal/pathauto": "~1",
         "drupal/swiftmailer": "~1",
-        "drupal/tfa": "~1",
         "drupal/token": "~1"
     },
     "require-dev": {
