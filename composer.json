@@ -81,13 +81,6 @@
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "patches": {
-            "drupal/ga_login": {
-                "Class Base32\\Base32 not found: caused by deprecated Base32 library usage": "https://www.drupal.org/files/issues/ga-login-2880601-refactor-base-encoding-for-library-dependency-6.patch"
-            },
-            "drupal/tfa": {
-                "Class 'Base32\\Base32' not found - switch library to paragonie/constant_time_encoding": "https://www.drupal.org/files/issues/tfa-base32-paragonie-encoding.patch",
-                "OpenSSL AES 128 encryption method": "https://www.drupal.org/files/issues/openssl-aaes-encryption-method-2925181-2.patch"
-            }
         }
     }
 }
