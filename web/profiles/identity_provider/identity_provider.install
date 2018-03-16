@@ -131,7 +131,7 @@ function identity_provider_install() {
     'title' => 'Help',
     'langcode' => 'en',
     'link' => 'entity:node/1',
-    'menu_name' => 'footer',
+    'menu_name' => 'login-links',
     'rediscover' => FALSE,
   ]);
   $menu_item->addTranslation('de', [
