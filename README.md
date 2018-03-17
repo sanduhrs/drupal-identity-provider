@@ -18,7 +18,7 @@ composer create-project sanduhrs/drupal-identity-provider identity-provider
 Install the setup
 ```
 cd identity-provider
-./vendor/bin/drush si --db-url=mysql://user:pass@localhost/identity_provider --site-name "Identity Provider"
+./vendor/bin/drush si identity_provider --db-url=mysql://user:pass@localhost/identity_provider --site-name "Identity Provider"
 ```
 
 Serve the setup
