@@ -8,6 +8,7 @@ distribution:
   langcode: en
 dependencies:
   - node
+  - big_pipe
   - block
   - breakpoint
   - ckeditor
@@ -32,6 +33,7 @@ dependencies:
   - field_ui
   - file
   - rdf
+  - shortcut
   - views
   - views_ui
   - tour
