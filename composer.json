@@ -78,6 +78,9 @@
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "patches": {
+            "drupal/core": {
+                "Firefox drupal login form causing flash of unstyled content": "https://www.drupal.org/files/issues/2900908-18.patch"
+            }
         }
     }
 }
