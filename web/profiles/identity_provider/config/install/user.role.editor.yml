@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies: {  }
+id: editor
+label: Editor
+weight: -8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access files overview'
+  - 'access in-place editing'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'access tour'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'administer url aliases'
+  - 'create content translations'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any page content'
+  - 'delete content translations'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'revert all revisions'
+  - 'revert page revisions'
+  - 'translate any entity'
+  - 'translate menu_link_content'
+  - 'translate page node'
+  - 'update content translations'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
