@@ -11,3 +11,4 @@ permissions:
   - 'access tour'
   - 'access user profiles'
   - 'administer users'
+  - 'view the administration theme'
