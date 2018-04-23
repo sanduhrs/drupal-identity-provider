@@ -26,7 +26,10 @@ function identity_provider_install() {
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
   $user->roles[] = 'administrator';
-  $user->save();
+  try {
+    $user->save();
+  }
+  catch (\Exception $e) {}
 
   // We install some menu links, so we have to rebuild the router, to ensure the
   // menu links are valid.
@@ -43,7 +46,10 @@ function identity_provider_install() {
   // Update entities.
   $update_manager = \Drupal::entityDefinitionUpdateManager();
   if ($update_manager->needsUpdates()) {
-    $update_manager->applyUpdates();
+    try {
+      $update_manager->applyUpdates();
+    }
+    catch (\Exception $e) {}
   }
 
   // Create help pages.
@@ -83,7 +89,7 @@ function identity_provider_install() {
           Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
         </ul>',
       'format' => 'basic_html',
-    ]
+    ],
   ]);
   $node->addTranslation('fr', [
     'type' => 'page',
@@ -102,7 +108,7 @@ function identity_provider_install() {
           Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
         </ul>',
       'format' => 'basic_html',
-    ]
+    ],
   ]);
   $node->addTranslation('eo', [
     'type' => 'page',
@@ -121,9 +127,12 @@ function identity_provider_install() {
           Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
         </ul>',
       'format' => 'basic_html',
-    ]
+    ],
   ]);
-  $node->save();
+  try {
+    $node->save();
+  }
+  catch (\Exception $e) {}
 
   // Create menu links.
   $menu_item = MenuLinkContent::create([
@@ -145,7 +154,10 @@ function identity_provider_install() {
     'title' => 'Helpo',
     'langcode' => 'eo',
   ]);
-  $menu_item->save();
+  try {
+    $menu_item->save();
+  }
+  catch (\Exception $e) {}
 
   $menu_item = MenuLinkContent::create([
     'title' => 'Create new account',
