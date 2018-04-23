@@ -5,7 +5,6 @@
  * Install, update and uninstall functions for the identity_provider profile.
  */
 
-use Drupal\Component\Utility\Random;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\node\Entity\Node;
