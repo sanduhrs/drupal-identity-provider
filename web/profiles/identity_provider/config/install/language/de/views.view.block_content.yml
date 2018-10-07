@@ -14,34 +14,31 @@ display:
       pager:
         options:
           tags:
-            previous: '< Zurück'
+            previous: '‹ Zurück'
             next: 'Weiter >'
           expose:
             items_per_page_label: 'Elemente pro Seite'
             items_per_page_options_all_label: '- Alle -'
-            offset_label: Offset
+            offset_label: Versatz
       fields:
         info:
-          label: Block-Beschreibung
+          label: Blockbeschreibung
           separator: ', '
         type:
-          label: Block-Typ
+          label: Blocktyp
           separator: ', '
         changed:
           label: Aktualisiert
         operations:
-          label: Operationen
+          label: Aktionen
       filters:
         info:
           expose:
-            label: Block-Beschreibung
+            label: Blockbeschreibung
         type:
           expose:
-            label: Block-Typ
+            label: Blocktyp
       title: 'Bibliothek benutzerdefinierter Blöcke'
-      empty:
-        area_text_custom:
-          content: 'Es sind keine benutzerdefinierten Blöcke verfügbar. '
   page_1:
     display_title: Seite
     display_options:

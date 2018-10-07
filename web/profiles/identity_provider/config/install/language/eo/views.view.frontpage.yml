@@ -1,6 +1,9 @@
 display:
   default:
     display_options:
+      empty:
+        area_text_custom:
+          content: 'Neniu ĉefpaĝa enhavo jam estis kreita.'
       exposed_form:
         options:
           submit_button: Apliku

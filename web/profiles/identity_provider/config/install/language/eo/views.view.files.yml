@@ -16,11 +16,16 @@ display:
       fields:
         filename:
           label: Nomo
+        filemime:
+          label: MIME-tipo
         filesize:
           label: Grandeco
         status:
           label: Stato
       filters:
+        filemime:
+          expose:
+            label: MIME-tipo
         status:
           expose:
             label: Stato
@@ -35,6 +40,9 @@ display:
         options:
           expose:
             items_per_page_options_all_label: '- Ĉio -'
+      fields:
+        type:
+          label: 'Speco de ento'
       arguments:
         fid:
           exception:

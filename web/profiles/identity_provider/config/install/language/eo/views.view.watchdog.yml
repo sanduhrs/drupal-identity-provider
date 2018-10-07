@@ -33,9 +33,5 @@ display:
         severity:
           expose:
             label: Graveco
-      empty:
-        area:
-          content:
-            value: 'Loglibroj mesaĝoj ne ekzistas.'
   page:
     display_title: Paĝo

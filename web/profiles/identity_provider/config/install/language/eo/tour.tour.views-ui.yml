@@ -1,4 +1,6 @@
 tips:
+  views-ui-format:
+    label: 'Strukturo de eligo'
   views-ui-fields:
     label: Kampoj
   views-ui-preview:

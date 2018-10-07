@@ -16,13 +16,15 @@ display:
           expose:
             items_per_page_label: 'Elemente pro Seite'
             items_per_page_options_all_label: '- Alle -'
-            offset_label: Offset
+            offset_label: Versatz
           tags:
             previous: ‹‹
             next: ››
       fields:
         nothing:
-          admin_label: Symbol
+          admin_label: Icon
+        wid:
+          label: WID
         severity:
           label: Schweregrad
         type:
@@ -31,11 +33,13 @@ display:
           label: Datum
         message:
           label: Message
+          alter:
+            alt: '{{ message }}'
         name:
           label: Benutzer
           separator: ', '
         link:
-          label: Operationen
+          label: Aktionen
       filters:
         type:
           expose:
@@ -44,9 +48,5 @@ display:
           expose:
             label: Schweregrad
       title: 'Aktuelle Protokollnachrichten'
-      empty:
-        area:
-          content:
-            value: 'Keine Protokollnachrichten verfügbar.'
   page:
     display_title: Seite

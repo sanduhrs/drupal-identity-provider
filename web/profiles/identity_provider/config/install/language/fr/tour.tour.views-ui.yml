@@ -11,7 +11,6 @@ tips:
     body: 'Réaliser des tâches d''administration, comme ajouter une description et créer un clone. Cliquer sur le bouton déroulant pour voir les options disponibles.'
   views-ui-format:
     label: 'Format de sortie'
-    body: 'Choisir comment afficher les résultats. Par ex., choisir <em>Contenu</em> pour afficher chaque élément dans son intégralité, utilisant vos paramètres d''affichage. Ou choississez <em>Champs</em>, qui permet de n''afficher que les champs sélectionnés pour chaque résultat. Des formats supplémentaires peuvent être ajoutés en installant des modules qui <em>étendent</em> les fonctionnalités de base de Drupal.'
   views-ui-fields:
     label: Champs
     body: 'Si cette vue utilise des champs, alors ils sont listés ici. Vous pouvez cliquer sur un champ pour le configurer.'
