@@ -2,7 +2,7 @@
     "name": "sanduhrs/drupal-identity-provider",
     "description": "",
     "type": "project",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Stefan Auditor <stefan.auditor@erdfisch.de>",
