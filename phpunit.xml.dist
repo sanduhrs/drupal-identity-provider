@@ -8,7 +8,7 @@
          verbose="true"
         >
     <testsuites>
-        <testsuite name="drupal identity provider tests">
+        <testsuite name="drupal-identity-provider tests">
             <directory>./test/</directory>
         </testsuite>
     </testsuites>
