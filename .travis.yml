@@ -26,6 +26,7 @@ before_install:
 install:
   - composer --verbose validate
   - composer --verbose install
+  - composer --verbose update phpunit/phpunit --with-dependencies
 
 script:
   - if [[ $RELEASE = dev ]]; then composer --verbose remove --no-update drupal/console; fi;
